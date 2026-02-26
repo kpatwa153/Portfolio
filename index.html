@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenil Patwa | Data Scientist & AI Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #3182ce;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --bg-light: #f7fafc;
+            --bg-white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-white);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        #skills {
+            background: var(--bg-light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-category h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3::before {
+            content: '▪';
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-type {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-badge {
+            background: var(--bg-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        #experience {
+            background: var(--bg-light);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-meta {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .timeline-item ul {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent);
+        }
+
+        .education-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .degree {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .year {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        #certifications {
+            background: var(--bg-light);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .cert-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .cert-info h4 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-issuer {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary);
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Kenil Patwa</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Kenil Patwa</h1>
+        <p class="subtitle">Data Scientist & AI Engineer</p>
+        <p>Transforming data into actionable insights and building intelligent systems that drive innovation. Specializing in machine learning, deep learning, and scalable AI solutions.</p>
+        <div class="cta-buttons">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a Data Scientist and AI Engineer specializing in <strong>healthcare AI, enterprise analytics, and production ML systems</strong>. Currently at <strong>Trackmind working with Johnson & Johnson</strong>, I architect data-driven solutions that impact <strong>180,000+ end users across 500+ global sites</strong>, from detecting <strong>1M+ critical vulnerabilities</strong> to building executive dashboards that transform IT operations.</p>
+                <p>My technical foundation combines advanced research with real-world impact. My <strong>Master's thesis on multimodal medical AI</strong> achieved a <strong>30% improvement in medical speech recognition</strong>, while my <strong>IEEE-published research on diabetic retinopathy detection</strong> reached <strong>98% accuracy</strong>. I bridge cutting-edge AI techniques—<strong>LLMs, RAG, adversarial robustness, multimodal systems</strong>—with production deployment, having built everything from <strong>GenAI tracking platforms</strong> to <strong>predictive healthcare models</strong>.</p>
+                <p>What sets me apart is the intersection of technical depth and diverse experience. I've earned <strong>19 certifications</strong> across the AI stack (from fine-tuning LLMs to cloud platforms), completed <strong>20+ projects</strong> spanning computer vision to statistical modeling, and mastered both <strong>Python and R ecosystems</strong>. My work consistently delivers measurable results: <strong>80% reduction in false alerts</strong>, <strong>60% faster incident resolution</strong>, <strong>95% automation of manual workflows</strong>.</p>
+                <p>Beyond code, I bring <strong>15 years of competitive discipline</strong> from tennis (state champion, national competitor) and proven leadership from heading social initiatives that collaborated with <strong>3+ NGOs</strong>. As a Teaching Assistant, I mentor students in statistical modeling while tackling enterprise challenges in AI safety, healthcare analytics, and large-scale system optimization. I'm driven by building AI solutions that don't just work technically—they create real impact for users, patients, and organizations.</p>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">2+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Large Language Models</span>
+                        <span class="skill-tag">Artificial Intelligence</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Regression</span>
+                        <span class="skill-tag">Time Series Forecasting</span>
+                        <span class="skill-tag">RAG</span>
+                        <span class="skill-tag">Fine-tuning LLMs</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Advanced AI Techniques</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Multimodal LLMs</span>
+                        <span class="skill-tag">Agentic AI</span>
+                        <span class="skill-tag">Vector Databases</span>
+                        <span class="skill-tag">Neural Networks</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Platforms & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Snowflake</span>
+                        <span class="skill-tag">Databricks</span>
+                        <span class="skill-tag">NoSQL</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Google Cloud</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Microsoft Power Platform</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power Apps</span>
+                        <span class="skill-tag">Power Automate</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">DAX</span>
+                        <span class="skill-tag">Common Data Service</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Development & Visualization</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Copilot</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Excel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Data Scientist</h3>
+                    <div class="timeline-meta">Trackmind • June 2025 - Present</div>
+                    <ul>
+                        <li>Lead data scientist for <strong>Johnson & Johnson's End User Team</strong>, driving <strong>proactive detection and remediation</strong> of user issues across <strong>500+ global sites</strong> impacting <strong>180k+ end users</strong>, leveraging advanced analytics and automation to optimize IT operations and prevent service disruptions</li>
+                        <li>Architected end-to-end <strong>GenAI Use Case Tracking System</strong> for executive leadership, developing automated workflow using <strong>Power Apps, Power Automate, Python, Azure Blob Storage, and Power BI</strong> to track <strong>20+ enterprise AI initiatives</strong>. Built scalable pipeline ingesting daily data to database with automated monthly notifications to use case owners, delivering real-time progress visibility to C-suite stakeholders</li>
+                        <li>Led <strong>Critical Threat Assessment (CTA) project</strong> addressing application vulnerabilities: engineered <strong>Python-based vulnerability detection system</strong> integrating <strong>CVE.org data</strong> with environment scanning, applying <strong>regex patterns and similarity algorithms</strong> to identify vulnerable applications. Detected <strong>1M+ CRITICAL vulnerabilities</strong> and created executive Power BI dashboard prioritizing remediation by severity, enabling targeted security interventions</li>
+                        <li>Resolved <strong>70-80% package reinstallation issue</strong> through <strong>dependency analysis</strong> using Python and Excel, identifying root causes of background package removal. Implemented data-driven solution that reduced reinstallations to <strong>5%</strong>, significantly improving system stability and reducing IT support burden</li>
+                        <li>Automated <strong>Executive Database updates</strong> using <strong>Python and SQL</strong>, transforming manual <strong>bi-monthly process into weekly automated workflow</strong>, increasing data freshness by <strong>400%</strong> and eliminating manual errors while freeing <strong>8+ hours of analyst time monthly</strong></li>
+                        <li>Conducted <strong>Commercial Sales Field Analysis</strong> leveraging <strong>Nexthink data and Excel analytics</strong> to assess laptop necessity for sales teams across all regions. Analyzed focus time and application usage patterns, discovering <strong>90% of workflows achievable via iPad with MS Suite</strong>, delivering cost-saving recommendations projected to save <strong>millions in hardware expenses</strong></li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Data Science Intern</h3>
+                    <div class="timeline-meta">Trackmind • September 2024 - May 2025</div>
+                    <ul>
+                        <li>Architected and deployed an enterprise-wide <strong>executive IT operations dashboard</strong> for <strong>Johnson & Johnson</strong>, providing real-time visibility into critical incidents across <strong>500+ global sites</strong> including <strong>system crashes, application failures, network connectivity issues, and security vulnerabilities</strong>, enabling proactive remediation and reducing incident response time from <strong>hours/days to real-time</strong>, impacting <strong>180k+ end users</strong></li>
+                        <li>Engineered comprehensive <strong>multi-dimensional analytics</strong> with granular breakdowns by <strong>OS type/version, hardware models, WiFi configurations, application binaries, Teams call quality,</strong> and <strong>15+ End User Service metrics</strong>, delivering actionable insights to Site Delivery Leads for immediate issue prioritization and IT resource allocation</li>
+                        <li>Developed <strong>Python-based alerting optimization system</strong> that analyzed <strong>thousands of IT incident alerts</strong>, implementing <strong>machine learning-driven threshold adjustments</strong> and trigger calibration that reduced <strong>false positive alerts by 80%</strong>, significantly improving alert accuracy and reducing alert fatigue for IT operations teams</li>
+                        <li>Built automated <strong>Power Automate workflow</strong> orchestrating <strong>real-time alert distribution to 100+ Site Delivery Leads</strong>, enabling instant incident notification and stakeholder communication that accelerated <strong>mean time to resolution (MTTR) by 60%</strong> and prevented potential service outages</li>
+                        <li>Designed and implemented <strong>12+ proactive monitoring alerts</strong> for <strong>newly identified issue patterns</strong> through pattern analysis of historical incident data, establishing early warning systems that detect anomalies <strong>30+ minutes before escalation</strong> into <strong>site-wide outages</strong>, improving overall system reliability and uptime by <strong>25%</strong></li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Teaching Assistant - Regression and Time Series Forecasting</h3>
+                    <div class="timeline-meta">Rutgers University • September 2024 - May 2025</div>
+                    <ul>
+                        <li>Mentored <strong>20+ graduate students</strong> in advanced <strong>statistical modeling</strong> and <strong>R programming</strong>, delivering personalized guidance that improved assignment scores and project performance by <strong>30%</strong> through targeted instruction in <strong>regression techniques</strong> and <strong>time series analysis</strong></li>
+                        <li>Facilitated comprehensive learning sessions for <strong>30+ students</strong> covering complex <strong>time series forecasting methodologies</strong> and <strong>regression concepts</strong>, increasing assignment completion rates by <strong>70%</strong> through interactive lectures, hands-on coding demonstrations, and one-on-one problem-solving support</li>
+                        <li>Designed and evaluated course assignments focusing on real-world applications of <strong>ARIMA models</strong>, <strong>exponential smoothing</strong>, and <strong>multivariate regression</strong>, providing detailed feedback that strengthened students' ability to apply statistical methods to business and research problems</li>
+                        <li>Held weekly office hours and review sessions to clarify advanced statistical concepts, debug <strong>R code</strong>, and guide students through project implementation, fostering a collaborative learning environment that enhanced overall course satisfaction and academic outcomes</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Graduate Research Assistant</h3>
+                    <div class="timeline-meta">Rutgers University • September 2023 - August 2024</div>
+                    <ul>
+                        <li>Conducted advanced <strong>geospatial research</strong> analyzing happiness distribution patterns across <strong>Cali, Colombia</strong>, leveraging <strong>Geographic Information Systems (GIS)</strong> and <strong>machine learning</strong> to model socio-economic determinants of urban well-being</li>
+                        <li>Engineered a multi-factor <strong>classification regression model</strong> integrating <strong>15+ demographic, socio-economic, and psychological variables</strong>, achieving <strong>87% predictive accuracy</strong> in mapping happiness index variations across diverse urban populations</li>
+                        <li>Developed <strong>Python-based geospatial analytics pipeline</strong> processing census data for <strong>2.2+ million residents</strong>, implementing <strong>spatial clustering algorithms</strong> to identify happiness hotspots and socio-economic disparity zones with statistical significance <strong>(p<0.05)</strong></li>
+                        <li>Created interactive <strong>GIS visualizations</strong> and <strong>heat maps</strong> revealing correlations between urban infrastructure, income inequality, and psychological well-being metrics, delivering actionable insights for urban policy planning to university and municipal stakeholders</li>
+                        <li>Demonstrated through statistical analysis that socio-economic factors accounted for <strong>68% of happiness variance</strong>, contributing to academic understanding of Latin American urban quality of life dynamics and evidence-based city development strategies</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Data Analyst Intern</h3>
+                    <div class="timeline-meta">1digitalstack.ai • January 2023 - June 2023</div>
+                    <ul>
+                        <li>Architected and deployed an end-to-end <strong>automated reporting pipeline</strong> using <strong>Python</strong> and <strong>SQL</strong>, generating <strong>150+ client intelligence reports</strong> that analyzed product visibility across <strong>5 major e-commerce platforms</strong> and <strong>10+ category hierarchies</strong>, enabling data-driven brand positioning strategies</li>
+                        <li>Engineered a <strong>GenAI-powered product categorization system</strong> that reduced manual classification effort by <strong>95%</strong>, leveraging custom-trained <strong>language models</strong> to automatically map product features to category taxonomies with high accuracy across dynamic search result datasets</li>
+                        <li>Developed an intelligent <strong>data pipeline</strong> integrating <strong>2 critical data streams</strong> (search engine crawl data and revenue analytics) with automated keyword classification logic, processing <strong>100,000+ product records monthly</strong> while implementing positive/negative keyword filtering to isolate brand-relevant products from noise</li>
+                        <li>Led <strong>brand visibility optimization initiative</strong> analyzing <strong>500+ strategic keywords</strong> and their search volume patterns across <strong>8 geographic markets</strong>, delivering actionable recommendations that improved clients' keyword bidding <strong>ROI by 30%</strong> and enhanced platform presence</li>
+                        <li>Designed <strong>automated data quality workflows</strong> processing <strong>50,000+ daily search result records</strong>, implementing business rules for generic vs. branded keyword segmentation across <strong>25+ product categories</strong> and maintaining dynamic product feature mapping tables with <strong>98% accuracy</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>🏆 Medical AI Chatbot: Multimodal RAG System</h3>
+                    <p class="project-type">Master's Thesis • LLMs • Computer Vision • NLP</p>
+                </div>
+                <div class="project-body">
+                    <p>Architected an enterprise-grade <strong>AI-powered medical assistant</strong> leveraging <strong>Retrieval-Augmented Generation (RAG)</strong> to process medical audio, PDFs, and images. System features <strong>fine-tuned Whisper ASR</strong> achieving <strong>30% WER reduction</strong> on medical terminology, <strong>multimodal embeddings</strong> (text, images, tables), and <strong>Qwen2-VL vision-language model</strong> for context-aware Q&A. Includes <strong>layout-preserving multilingual translation</strong> and <strong>automatic summarization</strong> of clinical documents. Built with <strong>Streamlit UI</strong>, <strong>Qdrant vector database</strong>, and production-ready modular architecture.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Whisper (Fine-tuned)</span>
+                        <span class="tech-badge">Qwen2-VL</span>
+                        <span class="tech-badge">LangChain</span>
+                        <span class="tech-badge">CLIP</span>
+                        <span class="tech-badge">Qdrant</span>
+                        <span class="tech-badge">RAG</span>
+                        <span class="tech-badge">Streamlit</span>
+                        <span class="tech-badge">BGE Embeddings</span>
+                        <span class="tech-badge">Transformers</span>
+                    </div>
+                    <a href="https://github.com/kpatwa153/Masters-Project" target="_blank" class="project-link">View on GitHub →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Diabetic Retinopathy Detection Using Deep Learning</h3>
+                    <p class="project-type">Computer Vision • Deep Learning • Healthcare AI</p>
+                </div>
+                <div class="project-body">
+                    <p>Developed an <strong>automated diagnostic system</strong> for early detection of Diabetic Retinopathy using <strong>deep CNN architectures</strong> on <strong>3,662 fundus images</strong> from APTOS 2019 dataset. Implemented and compared <strong>4 state-of-the-art models</strong> (ResNet-18, GoogLeNet, VGGNet-19, AlexNet) for both <strong>multiclass (5 stages)</strong> and <strong>binary classification</strong>. Achieved <strong>98% accuracy in binary classification</strong> and <strong>87% in multiclass classification</strong> using ResNet-18, significantly outperforming baseline models. Research <strong>published in IEEE</strong> and showcased practical deployment through custom GUI for clinical use.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">Keras</span>
+                        <span class="tech-badge">ResNet-18</span>
+                        <span class="tech-badge">GoogLeNet</span>
+                        <span class="tech-badge">VGGNet-19</span>
+                        <span class="tech-badge">CNN</span>
+                        <span class="tech-badge">Medical Imaging</span>
+                    </div>
+                    <a href="https://github.com/kpatwa153/Diabetic-Retinopathy-Detection" target="_blank" class="project-link">View on GitHub →</a>
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10126384" target="_blank" class="project-link" style="margin-left: 1rem;">📄 Read IEEE Paper →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Adversarially Robust Traffic Sign Classification</h3>
+                    <p class="project-type">AI Safety • Adversarial ML • Computer Vision</p>
+                </div>
+                <div class="project-body">
+                    <p>Developed a <strong>robust deep learning system</strong> for traffic sign recognition that maintains high accuracy under <strong>adversarial attacks</strong> (FGSM, PGD). Implemented <strong>adversarial training</strong> with defensive transformations including <strong>Gaussian blur, random cropping, color jitter, and random flips</strong> to enhance model resilience against malicious perturbations. Critical for <strong>autonomous vehicle safety</strong> and <strong>ADAS systems</strong>, the model demonstrates significant robustness improvements on adversarially manipulated inputs while maintaining performance on clean data, addressing real-world AI security challenges in safety-critical applications.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">PyTorch</span>
+                        <span class="tech-badge">FGSM Attack</span>
+                        <span class="tech-badge">PGD Attack</span>
+                        <span class="tech-badge">Adversarial Training</span>
+                        <span class="tech-badge">Torchvision</span>
+                        <span class="tech-badge">CNN</span>
+                        <span class="tech-badge">AI Safety</span>
+                    </div>
+                    <a href="https://github.com/kpatwa153/Traffic-Sign-Classification-Using-Deep-Learning-with-Adversarial-Robustness" target="_blank" class="project-link">View on GitHub →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Adolescent Depression Predictive Analysis</h3>
+                    <p class="project-type">Machine Learning • Healthcare Analytics • Social Impact</p>
+                </div>
+                <div class="project-body">
+                    <p>Developed <strong>predictive ML models</strong> to identify <strong>Major Depressive Episodes with Severe Impairment (MDE)</strong> among adolescents using <strong>NSDUH dataset (6,000 samples, 12 features)</strong>. Implemented and compared <strong>Logistic Regression</strong> and <strong>Random Forest</strong> classifiers, achieving <strong>82.8% accuracy and 0.90+ AUC</strong>. Conducted comprehensive <strong>statistical analysis (chi-square tests, correlation analysis)</strong> revealing that <strong>75% of affected individuals were females</strong>, and identified <strong>age, gender, income, parental involvement</strong> as strongest predictors. Findings provide actionable insights for <strong>public health policy</strong> and <strong>mental health intervention programs</strong>.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">R</span>
+                        <span class="tech-badge">Logistic Regression</span>
+                        <span class="tech-badge">Random Forest</span>
+                        <span class="tech-badge">Statistical Analysis</span>
+                        <span class="tech-badge">ggplot2</span>
+                        <span class="tech-badge">caret</span>
+                        <span class="tech-badge">ROC/AUC</span>
+                    </div>
+                    <a href="https://github.com/kpatwa153/Analysis-of-Major-Depressive-Episodes-with-Severe-Impairment-Among-Adolescents" target="_blank" class="project-link">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="education" class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+            <div class="education-card">
+                <h3>Rutgers University</h3>
+                <div class="degree">Master of Science in Data Science</div>
+                <div class="year">2023 - 2025</div>
+                <p style="margin-top: 1rem; color: var(--text-secondary);">New Brunswick, NJ, USA</p>
+            </div>
+
+            <div class="education-card">
+                <h3>Symbiosis International University</h3>
+                <div class="degree">Bachelor of Technology in Computer Science</div>
+                <div class="year">2019 - 2023</div>
+                <p style="margin-top: 1rem; color: var(--text-secondary);">Pune, India</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">LLM</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/87818dc04aaa94b22bd4f2c6fcda347df7d828c7589c586a4afff65379d452c5/" target="_blank" style="color: var(--primary); text-decoration: none;">LLM Foundations: Vector Databases for RAG</a></h4>
+                        <div class="cert-issuer">LinkedIn Learning</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">FT</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/597c24375cdcedd730aa19e84478d237e9f4ae06dc7bb4ba36cf45eb76fe8688/" target="_blank" style="color: var(--primary); text-decoration: none;">Fine Tune your LLMs</a></h4>
+                        <div class="cert-issuer">LinkedIn Learning</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">NN</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/c7cdb4af74e5dbd52eb5340054df23d2f869ce92df31c427d0dba71718b92cd7/" target="_blank" style="color: var(--primary); text-decoration: none;">AI Foundations: Neural Networks</a></h4>
+                        <div class="cert-issuer">LinkedIn Learning</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">GEN</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/59277beb36fb0cc2b1be781081d5b5a3666cb6d5477f4a79364f9cff7c954d14/" target="_blank" style="color: var(--primary); text-decoration: none;">Generative AI: Introduction to LLMs</a></h4>
+                        <div class="cert-issuer">LinkedIn Learning</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">AI</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/71db26ee61fef45c6a1fef6b89b08e03fe0af8e0169c84662e4da6cc7e5097b8/" target="_blank" style="color: var(--primary); text-decoration: none;">Introduction to Generative AI</a></h4>
+                        <div class="cert-issuer">LinkedIn Learning</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">PA</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/972dafbd50be45978bef4c0068ffa2e7690c42e504584c88ecd5b5d9847c3e0b/" target="_blank" style="color: var(--primary); text-decoration: none;">PowerApps: Common Data Service</a></h4>
+                        <div class="cert-issuer">Microsoft</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">PA</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/84470040306a27c2a7c2011b74ffa4468e4c4ec34d77f0c2c93367f8fda01696/" target="_blank" style="color: var(--primary); text-decoration: none;">Power Apps: Building Data-Driven Apps</a></h4>
+                        <div class="cert-issuer">Microsoft</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">PA</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/324a8b57d372eaa32d1c21c4a1d2950ccb6f8bef3d08d731938fded266681b01/" target="_blank" style="color: var(--primary); text-decoration: none;">Power Apps Essential Training: Basics</a></h4>
+                        <div class="cert-issuer">Microsoft</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">PA</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/5d1874b12958a59669e3d3cefc6928dd2ae4bcf9a1a9f0fd5a5bb55eb3c0cc08/" target="_blank" style="color: var(--primary); text-decoration: none;">Power Apps: Beyond the Basics</a></h4>
+                        <div class="cert-issuer">Microsoft</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">BI</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/1f04d75a8ad4dc0d460520183068f6b58bdb103802ac0a58ceea9b48a7f8f10a/" target="_blank" style="color: var(--primary); text-decoration: none;">Power BI Modeling with DAX</a></h4>
+                        <div class="cert-issuer">Microsoft</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">BI</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/0d0db2725b289f291782e62699c5d2ef27f5393366c5a895db0bffc1e9ac2921/" target="_blank" style="color: var(--primary); text-decoration: none;">Advanced Power BI: DAX Formulas</a></h4>
+                        <div class="cert-issuer">Microsoft</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">AWS</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/aadd286adb246f0d0ccee368092b42bfba6462d63fcb083716c5cefbf07bdb46/" target="_blank" style="color: var(--primary); text-decoration: none;">AWS Essential Training for Developers</a></h4>
+                        <div class="cert-issuer">Amazon Web Services</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">AG</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.coursera.org/account/accomplishments/certificate/PUD6H2PAR43Y" target="_blank" style="color: var(--primary); text-decoration: none;">Software Processes and Agile Practices</a></h4>
+                        <div class="cert-issuer">Coursera</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">TB</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/d084fddf1408f98329450e2fd295b4a6eb3ece126cc436711d85d97b32a7cc42/" target="_blank" style="color: var(--primary); text-decoration: none;">Tableau Essential Training</a></h4>
+                        <div class="cert-issuer">LinkedIn Learning</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">DB</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/2e15ea289a3c404304b93d44a080c1ff5610d159" target="_blank" style="color: var(--primary); text-decoration: none;">Introduction to NoSQL</a></h4>
+                        <div class="cert-issuer">DataCamp</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">SF</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/86c93f7e0e4d86e036586a474ea1317f906029c17a3d5a58fbdc532be4755048/" target="_blank" style="color: var(--primary); text-decoration: none;">Everybody's Introduction to Snowflake</a></h4>
+                        <div class="cert-issuer">LinkedIn Learning</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">SF</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.linkedin.com/learning/certificates/20147fed9f80a597b1a1d53c9bfbdd2e4b5d002653b4f8215d581ba8db7e6ff2/" target="_blank" style="color: var(--primary); text-decoration: none;">Learning SnowflakeDB</a></h4>
+                        <div class="cert-issuer">LinkedIn Learning</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">DB</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/07aed685a82cd9425cee3fec8a1787379fa78297" target="_blank" style="color: var(--primary); text-decoration: none;">Introduction to Databricks</a></h4>
+                        <div class="cert-issuer">DataCamp</div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">GCP</div>
+                    <div class="cert-info">
+                        <h4><a href="https://www.cloudskillsboost.google/public_profiles/6205b8f7-c010-4d83-86a5-63a3ce4cf8de" target="_blank" style="color: var(--primary); text-decoration: none;">30 Days of Google Cloud Program</a></h4>
+                        <div class="cert-issuer">Google Cloud</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beyond Data Science Section -->
+    <section id="beyond" class="container">
+        <h2 class="section-title">Beyond Data Science</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Leadership & Athletics</h3>
+                <p>Beyond my technical expertise, I bring <strong>discipline, competitive drive, and leadership skills</strong> honed through <strong>15 years as a competitive tennis player</strong>. Having won <strong>10+ tournaments</strong> and represented my state at <strong>nationals</strong>, I understand the importance of resilience, strategic thinking, and performing under pressure—qualities that directly translate to tackling complex data science challenges.</p>
+                <p>As <strong>Head of Documentation and Collaboration</strong> for a Social Awareness Club during my undergraduate studies, I led initiatives that made tangible community impact. I <strong>collaborated with 3+ NGOs</strong> within 6 months to organize <strong>food donation drives, cleanliness campaigns, and awareness initiatives</strong>, while documenting and coordinating all events. This experience strengthened my ability to work cross-functionally, communicate effectively, and drive projects to completion.</p>
+                <p>Additionally, I served as a <strong>tennis coach for 3 months</strong>, developing mentoring and instructional skills that I now apply when teaching and guiding students as a Teaching Assistant. These experiences have shaped my approach to problem-solving: strategic, disciplined, collaborative, and always focused on creating measurable impact.</p>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Years Playing Tennis</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Tournament Wins</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">NGO Collaborations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Let's Connect</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    I'm always interested in hearing about new opportunities, collaborations, and innovative projects. Feel free to reach out!
+                </p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:kenilpatwa1209@gmail.com">kenilpatwa1209@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <span style="color: var(--text-secondary);">New Brunswick, New Jersey, US</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/kpatwa153" target="_blank" class="social-link" title="GitHub">GH</a>
+                    <a href="https://www.linkedin.com/in/kenil-patwa-604159191/" target="_blank" class="social-link" title="LinkedIn">LI</a>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Kenil Patwa. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.9;">Built with passion for data science and AI</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
